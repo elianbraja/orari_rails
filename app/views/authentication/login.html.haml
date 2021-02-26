@@ -1,0 +1,8 @@
+%body
+  %div{:class=>"wrapper"}
+    .login
+      %h1 Login
+      %form{:method => "post"}
+        %input{:name => "u", :placeholder => "Username", :required => "required", :type => "text", :class => "login_input"}/
+        %input{:name => "p", :placeholder => "Password", :required => "required", :type => "password", :class => "login_input"}}/
+        %button.btn.btn-primary.btn-block.btn-large{:type => "submit"} Let me in.

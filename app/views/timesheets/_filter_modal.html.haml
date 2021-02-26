@@ -1,0 +1,27 @@
+#testModal.modal{:role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %h5.modal-title Filter timesheet
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body
+        = search_form_for @search do |f|
+          .field
+            .input-daterange#datepicker
+              .input-group
+                .input-group-prepend
+                  %span.input-group-text{:id => ""} Date between
+                = f.text_field :day_gteq, value: @search.day_gteq&.strftime("%d-%m-%Y"), autocomplete: 'off', class: "form-control"
+                = f.text_field :day_lteq, value: @search.day_lteq&.strftime("%d-%m-%Y"), autocomplete: 'off', class: "form-control"
+              = f.label "Group"
+              = f.select :group_name_eq, options_for_select(Timesheet.pluck(:group_name).uniq, @search.group_name_eq), {:include_blank => true}, :class => "form-control"
+              = f.label "Subject"
+              = f.select :subject_name_eq, options_for_select(Subject.pluck(:name), @search.subject_name_eq), {:include_blank => true}, :class => "form-control"
+              = f.label "Teacher"
+              = f.select :teacher_first_name_eq, options_for_select(Teacher.pluck(:first_name), @search.teacher_first_name_eq), {:include_blank => true}, :class => "form-control"
+              = f.label "Class"
+              = f.select :school_class_code_eq, options_for_select(SchoolClass.pluck(:code), @search.school_class_code_eq), {:include_blank => true}, :class => "form-control"
+              .modal-footer
+                %button.btn.btn-primary{:type => "submit"} Save changes
+                %button.btn.btn-secondary{:type => "button", :id => "reset_filters"} Reset

@@ -1,0 +1,22 @@
+- content_for :title, "Teachers"
+
+= search_form_for @search do |f|
+  .input-group.mb-3.w-25
+    .input-group-prepend
+      %span#basic-addon1.input-group-text Name
+    = f.text_field :first_name_or_last_name_cont, class: "form-control"
+    = link_to teachers_path do
+      %i.fas.fa-sync-alt.fa-2x.ml-5
+
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th First Name
+        %th Last Name
+
+    %tbody
+      - @teachers.each do |teacher|
+        %tr
+          %td= teacher.first_name
+          %td= teacher.last_name

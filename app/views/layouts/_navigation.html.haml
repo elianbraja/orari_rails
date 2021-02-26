@@ -1,0 +1,10 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  %div#navbarSupportedContent.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+      %li.nav-item.active
+        %a.nav-link{:href => teachers_path} Teachers
+      %li.nav-item.active
+        %a.nav-link{:href => timesheets_path} Timesheet
+    %ul.navbar-nav.ml-auto
+      - if current_user
+        = link_to "Logout", destroy_user_session_path, method: :delete

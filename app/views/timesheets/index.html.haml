@@ -1,0 +1,24 @@
+- content_for :title, "Timesheet"
+
+= render "filter_modal"
+= link_to "Filter Results", "#testModal", "data-toggle" => "modal"
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Day
+        %th Subject
+        %th Teacher
+        %th Class
+        %th Time
+        %th Group
+
+    %tbody
+      - @timesheets.each do |timesheet|
+        %tr
+          %td= timesheet.day.strftime("%d-%m-%Y")
+          %td= timesheet.subject.name
+          %td= timesheet.teacher.first_name + " " + timesheet.teacher.last_name
+          %td= timesheet.school_class.code
+          %td= timesheet.time.strftime("%H:%M")
+          %td= timesheet.group_name

@@ -1,0 +1,22 @@
+do /home/elian/Test Rails Apps/OrariRails/bin/bundle exec /usr/share/rvm/rubies/ruby-2.4.0/bin/ruby /home/elian/Test Rails Apps/OrariRails/bin/rake routes --trace 
+Ruby enVironment Manager 1.29.10 (manual) (c) 2009-2017 Michal Papis, Piotr Kuczynski, Wayne E. Seguin
+
+                  Prefix Verb   URI Pattern                     Controller#Action
+        new_user_session GET    /login(.:format)                devise/sessions#new
+            user_session POST   /login(.:format)                devise/sessions#create
+    destroy_user_session DELETE /logout(.:format)               devise/sessions#destroy
+       new_user_password GET    /password/new(.:format)         devise/passwords#new
+      edit_user_password GET    /password/edit(.:format)        devise/passwords#edit
+           user_password PATCH  /password(.:format)             devise/passwords#update
+                         PUT    /password(.:format)             devise/passwords#update
+                         POST   /password(.:format)             devise/passwords#create
+cancel_user_registration GET    /cancel(.:format)               devise/registrations#cancel
+   new_user_registration GET    /register(.:format)             devise/registrations#new
+  edit_user_registration GET    /edit(.:format)                 devise/registrations#edit
+       user_registration PATCH  /                               devise/registrations#update
+                         PUT    /                               devise/registrations#update
+                         DELETE /                               devise/registrations#destroy
+                         POST   /                               devise/registrations#create
+    authentication_login GET    /authentication/login(.:format) authentication#login
+                teachers GET    /teachers(.:format)             teachers#index
+              timesheets GET    /timesheets(.:format)           timesheets#index
