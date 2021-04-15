@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20210225171842) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "school_classes", force: :cascade do |t|
     t.string "code"
     t.datetime "created_at", null: false
@@ -45,9 +48,9 @@ ActiveRecord::Schema.define(version: 20210225171842) do
     t.string "group_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "teacher_id"
-    t.integer "subject_id"
-    t.integer "school_class_id"
+    t.bigint "teacher_id"
+    t.bigint "subject_id"
+    t.bigint "school_class_id"
     t.index ["school_class_id"], name: "index_timesheets_on_school_class_id"
     t.index ["subject_id"], name: "index_timesheets_on_subject_id"
     t.index ["teacher_id"], name: "index_timesheets_on_teacher_id"
