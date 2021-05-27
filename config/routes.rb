@@ -5,4 +5,9 @@ Rails.application.routes.draw do
   get '/teachers', to: 'teachers#index'
   get '/timesheets', to: 'timesheets#index'
   root to: "timesheets#index"
+
+  Rails.application.routes.draw do
+    mount API::Base, at: "/"
+  end
+
 end

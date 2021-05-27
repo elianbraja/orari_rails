@@ -37,6 +37,9 @@ gem 'jquery-rails'
 gem "haml-rails", "~> 2.0"
 gem 'ransack'
 gem 'bootstrap-datepicker-rails'
+gem 'grape'
+gem 'grape-active_model_serializers'
+gem 'rack-cors'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
